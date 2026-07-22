@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shivang Naik — Data Platform Architect</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111820;
+  --ink-2:#1c2732;
+  --paper:#f5f2ec;
+  --paper-2:#ece7dd;
+  --brass:#b6853f;
+  --brass-lt:#d8b06a;
+  --line:#c9c1b2;
+  --line-dk:#2b3742;
+  --muted:#6a7078;
+  --muted-lt:#8b93a0;
+  --ok:#3f7d5a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Inter",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--brass);color:var(--paper)}
+a{color:inherit;text-decoration:none}
+.mono{font-family:"JetBrains Mono",monospace}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+
+/* ---------- eyebrow / labels ---------- */
+.eyebrow{
+  font-family:"JetBrains Mono",monospace;
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--brass);font-weight:500;
+}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,242,236,.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brandmark{font-family:"Fraunces",serif;font-weight:600;font-size:18px;letter-spacing:.01em}
+.brandmark span{color:var(--brass)}
+.nav{display:flex;gap:28px}
+.nav a{font-size:13px;color:var(--muted);transition:color .2s}
+.nav a:hover{color:var(--ink)}
+.nav-cta{
+  font-family:"JetBrains Mono",monospace;font-size:12px;
+  border:1px solid var(--ink);border-radius:2px;padding:7px 14px;
+  transition:all .2s;
+}
+.nav-cta:hover{background:var(--ink);color:var(--paper)}
+@media(max-width:720px){.nav a:not(.nav-cta){display:none}}
+
+/* ---------- hero ---------- */
+.hero{
+  background:var(--ink);color:var(--paper);
+  padding:88px 0 72px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--line-dk) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line-dk) 1px,transparent 1px);
+  background-size:56px 56px;
+  opacity:.28;
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 70% 30%,#000 20%,transparent 75%);
+          mask-image:radial-gradient(ellipse 80% 70% at 70% 30%,#000 20%,transparent 75%);
+}
+.hero .wrap{position:relative;z-index:2}
+.hero-eyebrow{color:var(--brass-lt);margin-bottom:22px}
+.hero h1{
+  font-family:"Fraunces",serif;font-weight:500;
+  font-size:clamp(38px,7vw,74px);line-height:1.02;letter-spacing:-.02em;
+  margin-bottom:26px;
+}
+.hero h1 em{font-style:italic;color:var(--brass-lt)}
+.hero-sub{
+  font-size:clamp(16px,2.4vw,20px);color:#c4ccd4;max-width:600px;
+  line-height:1.55;
+}
+.hero-sub b{color:var(--paper);font-weight:600}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:36px;
+  font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted-lt);
+}
+.hero-meta a:hover{color:var(--brass-lt)}
+.hero-meta span{color:var(--brass-lt)}
+
+/* ---------- proof strip ---------- */
+.strip{background:var(--ink-2);color:var(--paper);border-top:1px solid var(--line-dk)}
+.strip .wrap{
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat{padding:30px 24px;border-right:1px solid var(--line-dk)}
+.stat:last-child{border-right:none}
+.stat .num{font-family:"Fraunces",serif;font-size:38px;font-weight:500;color:var(--brass-lt);line-height:1}
+.stat .lbl{font-size:12.5px;color:#aab3bd;margin-top:8px;line-height:1.4}
+@media(max-width:720px){
+  .strip .wrap{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line-dk)}
+}
+
+/* ---------- section frame ---------- */
+section.block{padding:78px 0}
+.sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:8px}
+.sec-head h2{
+  font-family:"Fraunces",serif;font-weight:500;
+  font-size:clamp(26px,4vw,38px);letter-spacing:-.01em;line-height:1.1;
+}
+.sec-intro{color:var(--muted);max-width:620px;margin:14px 0 44px;font-size:16.5px}
+.rule{height:1px;background:var(--line);margin:0}
+
+/* ---------- positioning / narrative ---------- */
+.two-col{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+@media(max-width:820px){.two-col{grid-template-columns:1fr;gap:36px}}
+.lede{font-family:"Fraunces",serif;font-size:23px;line-height:1.45;font-weight:400;letter-spacing:-.01em}
+.lede b{color:var(--brass);font-weight:600}
+.body-p{margin-top:20px;color:var(--ink-2)}
+.side-card{
+  border:1px solid var(--line);background:var(--paper-2);
+  padding:26px 26px 22px;border-radius:3px;
+}
+.side-card h4{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:16px}
+.side-card .row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dotted var(--line);font-size:14px}
+.side-card .row:last-child{border-bottom:none}
+.side-card .row span:first-child{color:var(--muted)}
+.side-card .row span:last-child{font-weight:600}
+
+/* ---------- case studies ---------- */
+#work{background:var(--paper-2)}
+.case{
+  border-top:1px solid var(--line);padding:52px 0;
+  display:grid;grid-template-columns:64px 1fr;gap:32px;
+}
+.case:first-of-type{border-top:none}
+.case-idx{font-family:"Fraunces",serif;font-size:44px;color:var(--brass);line-height:1;font-weight:500}
+.case-role{font-family:"JetBrains Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.case h3{font-family:"Fraunces",serif;font-size:clamp(21px,3vw,27px);font-weight:500;letter-spacing:-.01em;line-height:1.18;margin-bottom:16px}
+.case-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:22px}
+@media(max-width:760px){
+  .case{grid-template-columns:1fr;gap:18px}
+  .case-idx{font-size:34px}
+  .case-grid{grid-template-columns:1fr;gap:18px}
+}
+.field h5{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:9px}
+.field p{font-size:14.5px;color:var(--ink-2);line-height:1.55}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+.chip{
+  font-family:"JetBrains Mono",monospace;font-size:11px;
+  border:1px solid var(--line);color:var(--muted);
+  padding:4px 10px;border-radius:2px;background:var(--paper);
+}
+.metrics{display:flex;flex-wrap:wrap;gap:26px;margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+.metric .m-num{font-family:"Fraunces",serif;font-size:28px;color:var(--ink);font-weight:500;line-height:1}
+.metric .m-num b{color:var(--brass)}
+.metric .m-lbl{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* ---------- per-case inline diagram ---------- */
+.diagram{
+  margin-top:24px;border:1px solid var(--line);border-radius:4px;
+  background:var(--ink);padding:22px 20px 16px;overflow:hidden;
+}
+.diagram .dg-cap{
+  font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brass-lt);margin-bottom:16px;
+}
+.diagram svg{width:100%;height:auto;display:block}
+/* svg text/shape styling via classes */
+.dg-box-fill{fill:#1c2732}
+.dg-box-fill-hi{fill:#243441}
+.dg-box-stroke{stroke:#2b3742;stroke-width:1}
+.dg-box-stroke-hi{stroke:#b6853f;stroke-width:1.3}
+.dg-title{fill:#f5f2ec;font-family:"Fraunces",serif;font-size:13px;font-weight:500}
+.dg-sub{fill:#aab3bd;font-family:"Inter",sans-serif;font-size:10px}
+.dg-tag{fill:#d8b06a;font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.08em}
+.dg-flow{stroke:#b6853f;stroke-width:1.4;fill:none}
+.dg-flow-dash{stroke:#6a7078;stroke-width:1.2;fill:none;stroke-dasharray:3 3}
+.dg-arrow{fill:#b6853f}
+.dg-lane{fill:#141d26}
+.dg-lane-lbl{fill:#8b93a0;font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.14em}
+
+/* ---------- technical deep-dive ---------- */
+.deepdive{
+  margin-top:22px;border:1px solid var(--line);border-left:3px solid var(--brass);
+  background:var(--paper-2);border-radius:3px;padding:24px 26px 20px;
+}
+.deepdive summary{
+  cursor:pointer;list-style:none;display:flex;align-items:center;gap:12px;
+  font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brass);font-weight:500;
+}
+.deepdive summary::-webkit-details-marker{display:none}
+.deepdive summary .tw{
+  margin-left:auto;font-size:16px;color:var(--muted);transition:transform .25s;
+  font-family:"Fraunces",serif;
+}
+.deepdive[open] summary .tw{transform:rotate(45deg)}
+.dd-body{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:22px 34px}
+@media(max-width:760px){.dd-body{grid-template-columns:1fr;gap:18px}}
+.dd-item h6{
+  font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink);margin-bottom:7px;
+  padding-bottom:6px;border-bottom:1px solid var(--line);
+}
+.dd-item p{font-size:13.5px;color:var(--ink-2);line-height:1.6}
+.dd-item p code,.spec code{
+  font-family:"JetBrains Mono",monospace;font-size:12px;
+  background:var(--ink);color:var(--brass-lt);padding:1.5px 6px;border-radius:2px;
+  white-space:nowrap;
+}
+.dd-item .why{display:block;margin-top:6px;font-size:12.5px;color:var(--muted);font-style:italic}
+.spec{
+  grid-column:1 / -1;margin-top:4px;padding-top:16px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;
+}
+.spec .sl{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+
+/* ---------- diagram ---------- */
+#architecture{background:var(--ink);color:var(--paper)}
+#architecture .sec-head h2,#architecture .lede{color:var(--paper)}
+#architecture .sec-intro{color:#aab3bd}
+#architecture .eyebrow{color:var(--brass-lt)}
+.pipe{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  border:1px solid var(--line-dk);border-radius:4px;overflow:hidden;margin-top:12px;
+}
+.stage{padding:24px 18px;border-right:1px solid var(--line-dk);position:relative;background:var(--ink-2)}
+.stage:last-child{border-right:none}
+.stage:nth-child(3){background:#212e39}
+.stage .st-idx{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--brass-lt);margin-bottom:12px}
+.stage h6{font-family:"Fraunces",serif;font-size:16px;font-weight:500;margin-bottom:12px;color:var(--paper)}
+.stage ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.stage li{font-size:12px;color:#b3bcc6;padding-left:12px;position:relative;line-height:1.35}
+.stage li::before{content:"";position:absolute;left:0;top:8px;width:4px;height:4px;background:var(--brass);border-radius:50%}
+.medallion{display:flex;gap:5px;margin-bottom:12px}
+.med-dot{width:9px;height:9px;border-radius:50%}
+.med-b{background:#a9743c}.med-s{background:#9aa4ad}.med-g{background:var(--brass-lt)}
+.pipe-note{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted-lt);margin-top:18px;text-align:center}
+@media(max-width:820px){
+  .pipe{grid-template-columns:1fr}
+  .stage{border-right:none;border-bottom:1px solid var(--line-dk)}
+  .stage:last-child{border-bottom:none}
+}
+
+/* ---------- skills ---------- */
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px}
+@media(max-width:820px){.skill-grid{grid-template-columns:1fr;gap:32px}}
+.skill-col h4{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.skill-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;font-size:14.5px}
+.dots{display:flex;gap:4px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.dot.on{background:var(--brass)}
+
+/* ---------- experience timeline ---------- */
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line)}
+.tl-item{position:relative;padding-bottom:34px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-24px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:2px solid var(--brass)}
+.tl-item.now::before{background:var(--brass)}
+.tl-date{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);letter-spacing:.04em}
+.tl-item h4{font-family:"Fraunces",serif;font-size:19px;font-weight:500;margin:5px 0 2px}
+.tl-org{font-size:14px;color:var(--brass);font-weight:500;margin-bottom:8px}
+.tl-item p{font-size:14.5px;color:var(--ink-2);max-width:640px}
+
+/* ---------- certs ---------- */
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:640px){.cert-grid{grid-template-columns:1fr}}
+.cert{border:1px solid var(--line);background:var(--paper-2);padding:18px 20px;border-radius:3px;display:flex;gap:14px;align-items:flex-start}
+.cert .mk{font-family:"Fraunces",serif;color:var(--brass);font-size:20px;line-height:1}
+.cert h5{font-size:14.5px;font-weight:600;line-height:1.3}
+.cert .cn{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--muted);margin-top:5px;word-break:break-all}
+.cert .prog{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ok);margin-top:5px}
+
+/* ---------- contact ---------- */
+#contact{background:var(--ink);color:var(--paper);padding:78px 0}
+#contact .eyebrow{color:var(--brass-lt)}
+#contact h2{font-family:"Fraunces",serif;font-weight:500;font-size:clamp(28px,5vw,46px);letter-spacing:-.01em;margin:16px 0 30px;line-height:1.1}
+#contact h2 em{font-style:italic;color:var(--brass-lt)}
+.contact-links{display:flex;flex-wrap:wrap;gap:14px}
+.clink{
+  border:1px solid var(--line-dk);border-radius:3px;padding:14px 22px;
+  font-family:"JetBrains Mono",monospace;font-size:13.5px;transition:all .2s;
+  display:flex;flex-direction:column;gap:3px;
+}
+.clink:hover{border-color:var(--brass);background:var(--ink-2)}
+.clink small{color:var(--muted-lt);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.clink span{color:var(--paper)}
+
+footer{background:var(--ink);color:var(--muted);border-top:1px solid var(--line-dk);padding:26px 0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11.5px}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="#top" class="brandmark">Shivang Naik<span>.</span></a>
+    <nav class="nav">
+      <a href="#approach">Approach</a>
+      <a href="#work">Case Studies</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </nav>
+  </div>
+</div>
+
+<a id="top"></a>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow hero-eyebrow">Data Platform Architect · Solutions Advisor</div>
+    <h1>I design data platforms that<br>earn <em>trust</em> and cut time-to-insight.</h1>
+    <p class="hero-sub">Seven years turning fragmented enterprise data into governed lakehouse platforms — from <b>fuel analytics on a steel plant floor</b> to <b>cloud migrations and real-time supply-chain streaming</b> at Accenture. I lead the design, the delivery, and the client conversation.</p>
+    <div class="hero-meta">
+      <a href="#contact">shivang729@gmail.com</a>
+      <span>/</span>
+      <a href="https://linkedin.com/in/ShivangNaik19" target="_blank" rel="noopener">linkedin.com/in/ShivangNaik19</a>
+      <span>/</span>
+      <span>Ahmedabad, IN</span>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="stat"><div class="num">40%</div><div class="lbl">faster time-to-insight on Azure Databricks</div></div>
+    <div class="stat"><div class="num">30%</div><div class="lbl">infrastructure cost cut via warehouse migration</div></div>
+    <div class="stat"><div class="num">2 TB+</div><div class="lbl">historical data migrated with zero downtime</div></div>
+    <div class="stat"><div class="num">12+</div><div class="lbl">heterogeneous sources unified into one platform</div></div>
+  </div>
+</div>
+
+<!-- APPROACH -->
+<section class="block" id="approach">
+  <div class="wrap">
+    <div class="eyebrow reveal">01 — Positioning</div>
+    <div class="sec-head reveal"><h2>From delivery engineer to platform architect.</h2></div>
+    <div class="two-col" style="margin-top:24px">
+      <div class="reveal">
+        <p class="lede">Most data engineers can show you code. I show you the <b>design decisions and the trade-offs behind them</b> — why a lakehouse over a warehouse, why SCD2 for these entities, where the quality gates sit, what I'd revisit next time.</p>
+        <p class="body-p">That judgment is what separates an architect from an implementer, and it's what these case studies are built to demonstrate. Each one moves from business problem to constraints to the reasoning behind the design — the same way I'd walk a client through it in a presales room.</p>
+        <p class="body-p">I own the full arc: strategy and estimation, solution design, the client demo, and the cross-functional team that ships it.</p>
+      </div>
+      <div class="side-card reveal">
+        <h4>At a glance</h4>
+        <div class="row"><span>Current role</span><span>Assoc. Manager, Accenture</span></div>
+        <div class="row"><span>Focus</span><span>Data Platform Architecture</span></div>
+        <div class="row"><span>Cloud</span><span>Azure · Databricks</span></div>
+        <div class="row"><span>Experience</span><span>7 years</span></div>
+        <div class="row"><span>Team led</span><span>5+ data engineers</span></div>
+        <div class="row"><span>Education</span><span>M.Tech · B.Tech</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="eyebrow reveal">02 — Case Studies</div>
+    <div class="sec-head reveal"><h2>Four platforms, four design problems.</h2></div>
+    <p class="sec-intro reveal">Each case study is structured the way an architect reasons through a build: the problem, the constraints that shaped the design, the decisions and trade-offs, and the measured outcome. Client details are generalized.</p>
+
+    <!-- Case 1 -->
+    <article class="case reveal">
+      <div class="case-idx">01</div>
+      <div>
+        <div class="case-role">Project Lead · Data Engineering · Team of 5</div>
+        <h3>Enterprise Data Lakehouse for unified batch &amp; real-time analytics</h3>
+        <div class="case-grid">
+          <div class="field">
+            <h5>Problem</h5>
+            <p>Twelve-plus fragmented sources — ERP, IoT sensors, transactional systems — left executives waiting days for insight and unable to trust the numbers across silos.</p>
+          </div>
+          <div class="field">
+            <h5>Constraints</h5>
+            <p>Both batch and real-time were required on one platform, with regulatory auditability for core entities and a heterogeneous existing tech landscape to absorb.</p>
+          </div>
+          <div class="field">
+            <h5>Design &amp; trade-offs</h5>
+            <p>A medallion lakehouse on Delta Lake for ACID guarantees over cheap storage. SCD2 + CDC on core entities for point-in-time auditability; Deequ quality gates placed before any BI exposure so bad data never reached consumers.</p>
+          </div>
+          <div class="field">
+            <h5>Outcome</h5>
+            <p>Curated data marts and Power BI dashboards gave executives self-service analytics, and automated monitoring with Airflow made the pipeline dependable enough to trust in production.</p>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip">Azure Databricks</span><span class="chip">Delta Lake</span><span class="chip">PySpark</span><span class="chip">Azure Data Factory</span><span class="chip">SCD2 / CDC</span><span class="chip">Deequ</span><span class="chip">Airflow</span><span class="chip">Power BI</span>
+        </div>
+        <div class="diagram">
+          <div class="dg-cap">Fig. 01 — Medallion lakehouse · batch + streaming ingestion to governed serving</div>
+          <svg viewBox="0 0 860 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Enterprise data lakehouse architecture: sources feed ingestion into bronze, silver and gold Delta layers with quality gates, then serve Power BI.">
+            <!-- Sources -->
+            <text class="dg-tag" x="20" y="24">SOURCES</text>
+            <g>
+              <rect class="dg-box-fill dg-box-stroke" x="20" y="34" width="120" height="30" rx="3"/>
+              <text class="dg-sub" x="30" y="53">ERP · Transactional DB</text>
+              <rect class="dg-box-fill dg-box-stroke" x="20" y="72" width="120" height="30" rx="3"/>
+              <text class="dg-sub" x="30" y="91">IoT sensor streams</text>
+              <rect class="dg-box-fill dg-box-stroke" x="20" y="110" width="120" height="30" rx="3"/>
+              <text class="dg-sub" x="30" y="129">Files · JSON/CSV/Parquet</text>
+            </g>
+            <!-- Ingestion -->
+            <text class="dg-tag" x="185" y="24">INGESTION</text>
+            <rect class="dg-box-fill dg-box-stroke" x="185" y="34" width="115" height="106" rx="3"/>
+            <text class="dg-title" x="196" y="60">ADF + PySpark</text>
+            <text class="dg-sub" x="196" y="80">Batch loads</text>
+            <text class="dg-sub" x="196" y="97">CDC capture</text>
+            <text class="dg-sub" x="196" y="114">Structured Streaming</text>
+            <!-- Delta medallion -->
+            <text class="dg-tag" x="345" y="24">DELTA LAKEHOUSE</text>
+            <rect class="dg-lane" x="345" y="34" width="230" height="180" rx="4"/>
+            <rect class="dg-box-fill dg-box-stroke" x="360" y="50" width="200" height="34" rx="3"/>
+            <circle cx="376" cy="67" r="5" fill="#a9743c"/>
+            <text class="dg-title" x="390" y="71">Bronze — raw</text>
+            <rect class="dg-box-fill dg-box-stroke" x="360" y="94" width="200" height="34" rx="3"/>
+            <circle cx="376" cy="111" r="5" fill="#9aa4ad"/>
+            <text class="dg-title" x="390" y="115">Silver — cleaned · SCD2</text>
+            <rect class="dg-box-fill-hi dg-box-stroke-hi" x="360" y="138" width="200" height="34" rx="3"/>
+            <circle cx="376" cy="155" r="5" fill="#d8b06a"/>
+            <text class="dg-title" x="390" y="159">Gold — curated marts</text>
+            <text class="dg-sub" x="360" y="196">ACID · time travel · schema evolution</text>
+            <!-- Quality gate (vertical badge between silver and gold) -->
+            <text class="dg-tag" x="620" y="24">QUALITY + GOV</text>
+            <rect class="dg-box-fill dg-box-stroke" x="620" y="34" width="105" height="106" rx="3"/>
+            <text class="dg-title" x="631" y="58">Deequ gates</text>
+            <text class="dg-sub" x="631" y="78">Schema checks</text>
+            <text class="dg-sub" x="631" y="95">Null / RI rules</text>
+            <text class="dg-sub" x="631" y="112">Purview lineage</text>
+            <!-- Serving -->
+            <text class="dg-tag" x="620" y="164">SERVING</text>
+            <rect class="dg-box-fill-hi dg-box-stroke-hi" x="620" y="174" width="105" height="40" rx="3"/>
+            <text class="dg-title" x="631" y="192">Power BI</text>
+            <text class="dg-sub" x="631" y="207">Self-service BI</text>
+            <!-- Orchestration bar -->
+            <rect class="dg-box-fill dg-box-stroke" x="745" y="34" width="95" height="180" rx="3"/>
+            <text class="dg-tag" x="756" y="52" transform="rotate(0 756 52)">ORCHESTRATION</text>
+            <text class="dg-sub" x="756" y="78">Airflow</text>
+            <text class="dg-sub" x="756" y="95">Monitoring</text>
+            <text class="dg-sub" x="756" y="112">Alerting</text>
+            <text class="dg-sub" x="756" y="129">Error handling</text>
+            <!-- Flows -->
+            <defs>
+              <marker id="arr1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path class="dg-arrow" d="M0,0 L6,3 L0,6 Z"/></marker>
+            </defs>
+            <path class="dg-flow" d="M140,87 L185,87" marker-end="url(#arr1)"/>
+            <path class="dg-flow" d="M300,87 L345,87" marker-end="url(#arr1)"/>
+            <path class="dg-flow-dash" d="M560,111 L620,87" marker-end="url(#arr1)"/>
+            <path class="dg-flow" d="M672,140 L672,174" marker-end="url(#arr1)"/>
+          </svg>
+        </div>
+        <details class="deepdive">
+          <summary>Technical deep-dive <span class="tw">+</span></summary>
+          <div class="dd-body">
+            <div class="dd-item">
+              <h6>Medallion layering</h6>
+              <p>Bronze holds raw append-only ingest; Silver applies cleansing, dedup and conformed schema; Gold serves business-grade aggregates and dimensions.
+              <span class="why">Isolating raw from curated lets us reprocess downstream logic without re-ingesting from source.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>SCD2 implementation</h6>
+              <p>Historised dimensions built with a Delta <code>MERGE INTO</code> matched-update-then-insert pattern — expire the current row (<code>end_date</code>, <code>is_current=false</code>) and insert the new version.
+              <span class="why">Enables point-in-time reporting and a defensible audit trail for regulated entities.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>CDC &amp; ingestion</h6>
+              <p>Log-based CDC over timestamp polling to avoid missed updates and reduce source load; batch sources via ADF, event sources via Auto Loader with schema inference and rescue columns.
+              <span class="why">Log-based capture is exactly-once-friendly and doesn't hammer the operational DB.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Performance tuning</h6>
+              <p>Gold tables Z-ordered on high-cardinality filter keys; scheduled <code>OPTIMIZE</code> compaction to fix small-file skew; broadcast joins for dimension lookups to avoid shuffles.
+              <span class="why">Compaction + data-skipping is where most of the 40% read speedup came from.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Quality gates</h6>
+              <p>Deequ constraint suites (completeness, uniqueness, referential integrity, range) run between Silver and Gold; failures quarantine the batch rather than propagating.
+              <span class="why">Bad data never reaches BI — trust is enforced by the pipeline, not by reviewers.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Orchestration &amp; reliability</h6>
+              <p>Airflow DAGs with retries, SLA miss alerts and idempotent tasks; Delta's ACID log makes failed runs safe to replay from the last checkpoint.
+              <span class="why">Idempotency is what let us cut operational incidents by 25%.</span></p>
+            </div>
+            <div class="spec">
+              <span class="sl">Stack</span>
+              <code>Delta Lake</code><code>PySpark</code><code>Auto Loader</code><code>ADF</code><code>Deequ</code><code>Airflow</code><code>Unity Catalog / Purview</code>
+            </div>
+          </div>
+        </details>
+        <div class="metrics">
+          <div class="metric"><div class="m-num"><b>40%</b></div><div class="m-lbl">reduction in time-to-insight</div></div>
+          <div class="metric"><div class="m-num"><b>25%</b></div><div class="m-lbl">fewer operational incidents</div></div>
+          <div class="metric"><div class="m-num"><b>12+</b></div><div class="m-lbl">sources ingested &amp; harmonized</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Case 2 -->
+    <article class="case reveal">
+      <div class="case-idx">02</div>
+      <div>
+        <div class="case-role">Lead Data Engineer</div>
+        <h3>Cloud data warehouse migration &amp; cost optimization</h3>
+        <div class="case-grid">
+          <div class="field">
+            <h5>Problem</h5>
+            <p>On-premises warehouses were expensive to run and slow to query, and the business could not afford downtime or lost history during a move to the cloud.</p>
+          </div>
+          <div class="field">
+            <h5>Constraints</h5>
+            <p>Zero downtime, full traceability, and no data loss across 100+ tables and 2 TB of history — while governance and access control had to hold throughout.</p>
+          </div>
+          <div class="field">
+            <h5>Design &amp; trade-offs</h5>
+            <p>A phased migration to Azure Synapse: bulk load first, then CDC-based incremental sync kept source and target aligned until a clean cut-over. Governance was established up front with cataloging, lineage, and access control via Azure Purview.</p>
+          </div>
+          <div class="field">
+            <h5>Outcome</h5>
+            <p>The migration landed on time with improved query performance and a governed, documented target platform the team could operate confidently.</p>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip">Azure Synapse</span><span class="chip">Azure Data Factory</span><span class="chip">PySpark</span><span class="chip">Azure Purview</span><span class="chip">CDC sync</span><span class="chip">Data lineage</span>
+        </div>
+        <div class="diagram">
+          <div class="dg-cap">Fig. 02 — Phased zero-downtime migration · bulk load → CDC sync → cut-over</div>
+          <svg viewBox="0 0 860 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zero-downtime migration: on-premises warehouse bulk loaded then kept in sync via CDC to Azure Synapse until a clean cut-over.">
+            <!-- Source lane -->
+            <rect class="dg-lane" x="20" y="40" width="150" height="150" rx="4"/>
+            <text class="dg-lane-lbl" x="34" y="62">SOURCE — ON-PREM</text>
+            <rect class="dg-box-fill dg-box-stroke" x="34" y="74" width="122" height="44" rx="3"/>
+            <text class="dg-title" x="46" y="94">Legacy warehouse</text>
+            <text class="dg-sub" x="46" y="110">100+ tables · 2 TB</text>
+            <text class="dg-sub" x="34" y="150">Stays live — no downtime</text>
+            <text class="dg-sub" x="34" y="168">during migration</text>
+            <!-- Phase pipeline -->
+            <text class="dg-tag" x="215" y="34">PHASE 1</text>
+            <rect class="dg-box-fill dg-box-stroke" x="215" y="44" width="150" height="60" rx="3"/>
+            <text class="dg-title" x="227" y="68">Bulk load</text>
+            <text class="dg-sub" x="227" y="86">ADF + PySpark · history</text>
+            <text class="dg-tag" x="215" y="128">PHASE 2</text>
+            <rect class="dg-box-fill dg-box-stroke" x="215" y="138" width="150" height="60" rx="3"/>
+            <text class="dg-title" x="227" y="162">CDC incremental sync</text>
+            <text class="dg-sub" x="227" y="180">keeps target current</text>
+            <!-- Cut-over gate -->
+            <text class="dg-tag" x="410" y="34">PHASE 3</text>
+            <rect class="dg-box-fill-hi dg-box-stroke-hi" x="410" y="70" width="110" height="90" rx="3"/>
+            <text class="dg-title" x="424" y="108">Cut-over</text>
+            <text class="dg-sub" x="424" y="126">once caught up</text>
+            <text class="dg-sub" x="424" y="142">full traceability</text>
+            <!-- Target lane -->
+            <rect class="dg-lane" x="560" y="40" width="150" height="150" rx="4"/>
+            <text class="dg-lane-lbl" x="574" y="62">TARGET — CLOUD</text>
+            <rect class="dg-box-fill-hi dg-box-stroke-hi" x="574" y="74" width="122" height="44" rx="3"/>
+            <text class="dg-title" x="586" y="94">Azure Synapse</text>
+            <text class="dg-sub" x="586" y="110">faster queries · −30% cost</text>
+            <text class="dg-sub" x="574" y="150">Governed from day one</text>
+            <!-- Governance bar -->
+            <rect class="dg-box-fill dg-box-stroke" x="730" y="40" width="110" height="150" rx="3"/>
+            <text class="dg-tag" x="744" y="60">PURVIEW</text>
+            <text class="dg-sub" x="744" y="84">Data catalog</text>
+            <text class="dg-sub" x="744" y="102">Access control</text>
+            <text class="dg-sub" x="744" y="120">Lineage docs</text>
+            <defs>
+              <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path class="dg-arrow" d="M0,0 L6,3 L0,6 Z"/></marker>
+            </defs>
+            <path class="dg-flow" d="M170,96 L215,74" marker-end="url(#arr2)"/>
+            <path class="dg-flow-dash" d="M170,120 L215,168" marker-end="url(#arr2)"/>
+            <path class="dg-flow" d="M365,74 L465,70" marker-end="url(#arr2)"/>
+            <path class="dg-flow-dash" d="M365,168 L465,160" marker-end="url(#arr2)"/>
+            <path class="dg-flow" d="M520,115 L560,96" marker-end="url(#arr2)"/>
+            <path class="dg-flow-dash" d="M696,96 L730,96" marker-end="url(#arr2)"/>
+          </svg>
+        </div>
+        <details class="deepdive">
+          <summary>Technical deep-dive <span class="tw">+</span></summary>
+          <div class="dd-body">
+            <div class="dd-item">
+              <h6>Migration strategy</h6>
+              <p>Phased over big-bang: a full historical bulk load establishes the baseline, then CDC-based incremental sync keeps target aligned while the source stays live, until a validated cut-over.
+              <span class="why">Only a running dual-write window makes true zero-downtime achievable.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Bulk + incremental</h6>
+              <p>Historical load partitioned and parallelised via ADF copy activities with staged PolyBase/COPY into Synapse; incremental deltas captured by change tracking and applied in micro-batches.
+              <span class="why">Staged loads saturate throughput without throttling the source.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Synapse modelling</h6>
+              <p>Distribution keys chosen per table — hash on large fact join keys, replicated for small dimensions — with columnstore indexing and partition switching for large loads.
+              <span class="why">Right distribution eliminates data movement, the main driver of query speedup.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Cut-over &amp; validation</h6>
+              <p>Row counts, checksums and reconciliation queries gate the switch; rollback path retained until parity is signed off.
+              <span class="why">Traceability isn't optional in a regulated migration — every table is provably equal.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Governance up front</h6>
+              <p>Purview scans register the catalog, classify sensitive columns and capture end-to-end lineage; access enforced via RBAC and column-level security from day one.
+              <span class="why">Governing at cut-over avoids a costly retro-fit later.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Cost optimisation</h6>
+              <p>Right-sized DWU tiers with pause/resume on off-hours, result-set caching, and tiered storage for cold history.
+              <span class="why">Elastic compute is where the 30% infrastructure saving landed.</span></p>
+            </div>
+            <div class="spec">
+              <span class="sl">Stack</span>
+              <code>Azure Synapse</code><code>ADF</code><code>PySpark</code><code>Change Tracking</code><code>PolyBase / COPY</code><code>Purview</code>
+            </div>
+          </div>
+        </details>
+        <div class="metrics">
+          <div class="metric"><div class="m-num"><b>30%</b></div><div class="m-lbl">infrastructure cost reduction</div></div>
+          <div class="metric"><div class="m-num"><b>2 TB</b></div><div class="m-lbl">migrated with zero downtime</div></div>
+          <div class="metric"><div class="m-num"><b>100+</b></div><div class="m-lbl">tables moved with full traceability</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Case 3 -->
+    <article class="case reveal">
+      <div class="case-idx">03</div>
+      <div>
+        <div class="case-role">Data Engineering Project Lead</div>
+        <h3>Real-time supply-chain analytics platform</h3>
+        <div class="case-grid">
+          <div class="field">
+            <h5>Problem</h5>
+            <p>Supply-chain issues surfaced too late. Managers needed to see supplier, logistics, and production signals as they happened, not in the next day's report.</p>
+          </div>
+          <div class="field">
+            <h5>Constraints</h5>
+            <p>Streaming IoT data at scale, integrated across three domains, with KPIs the business actually agreed were the right ones to watch.</p>
+          </div>
+          <div class="field">
+            <h5>Design &amp; trade-offs</h5>
+            <p>Spark Structured Streaming on Azure Databricks for end-to-end monitoring, with CDC-enabled pipelines joining supplier, logistics, and production data so bottlenecks could be caught proactively. KPIs were defined with stakeholders in workshops before a line of the dashboard was built.</p>
+          </div>
+          <div class="field">
+            <h5>Outcome</h5>
+            <p>Interactive Power BI dashboards for plant managers and executives turned early warning signals into fewer delays across the chain.</p>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip">Structured Streaming</span><span class="chip">Apache Spark</span><span class="chip">Azure Databricks</span><span class="chip">CDC pipelines</span><span class="chip">Power BI</span><span class="chip">KPI design</span>
+        </div>
+        <div class="diagram">
+          <div class="dg-cap">Fig. 03 — Real-time supply-chain streaming · three domains → structured streaming → live dashboards</div>
+          <svg viewBox="0 0 860 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Real-time supply chain: supplier, logistics and production streams merge through Spark Structured Streaming into bottleneck detection and live Power BI dashboards.">
+            <!-- Three domains -->
+            <text class="dg-tag" x="20" y="24">STREAMING SOURCES</text>
+            <rect class="dg-box-fill dg-box-stroke" x="20" y="34" width="140" height="34" rx="3"/>
+            <text class="dg-title" x="32" y="56">Supplier data</text>
+            <rect class="dg-box-fill dg-box-stroke" x="20" y="90" width="140" height="34" rx="3"/>
+            <text class="dg-title" x="32" y="112">Logistics IoT</text>
+            <rect class="dg-box-fill dg-box-stroke" x="20" y="146" width="140" height="34" rx="3"/>
+            <text class="dg-title" x="32" y="168">Production floor</text>
+            <!-- CDC merge -->
+            <text class="dg-tag" x="215" y="24">CDC INTEGRATION</text>
+            <rect class="dg-box-fill dg-box-stroke" x="215" y="70" width="130" height="74" rx="3"/>
+            <text class="dg-title" x="227" y="100">CDC pipelines</text>
+            <text class="dg-sub" x="227" y="120">join across domains</text>
+            <!-- Streaming engine -->
+            <text class="dg-tag" x="400" y="24">STREAM ENGINE</text>
+            <rect class="dg-box-fill-hi dg-box-stroke-hi" x="400" y="60" width="150" height="94" rx="3"/>
+            <text class="dg-title" x="414" y="88">Spark Structured</text>
+            <text class="dg-title" x="414" y="106">Streaming</text>
+            <text class="dg-sub" x="414" y="128">on Azure Databricks</text>
+            <text class="dg-sub" x="414" y="144">end-to-end monitoring</text>
+            <!-- Detection -->
+            <text class="dg-tag" x="605" y="24">ANALYTICS</text>
+            <rect class="dg-box-fill dg-box-stroke" x="605" y="40" width="130" height="54" rx="3"/>
+            <text class="dg-title" x="617" y="62">Bottleneck</text>
+            <text class="dg-title" x="617" y="80">detection</text>
+            <rect class="dg-box-fill dg-box-stroke" x="605" y="106" width="130" height="48" rx="3"/>
+            <text class="dg-sub" x="617" y="128">Agreed KPIs from</text>
+            <text class="dg-sub" x="617" y="144">stakeholder workshops</text>
+            <!-- Serving -->
+            <rect class="dg-box-fill-hi dg-box-stroke-hi" x="605" y="170" width="130" height="40" rx="3"/>
+            <text class="dg-title" x="617" y="188">Live Power BI</text>
+            <text class="dg-sub" x="617" y="203">plant + exec views</text>
+            <defs>
+              <marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path class="dg-arrow" d="M0,0 L6,3 L0,6 Z"/></marker>
+            </defs>
+            <path class="dg-flow" d="M160,51 L215,90" marker-end="url(#arr3)"/>
+            <path class="dg-flow" d="M160,107 L215,107" marker-end="url(#arr3)"/>
+            <path class="dg-flow" d="M160,163 L215,124" marker-end="url(#arr3)"/>
+            <path class="dg-flow" d="M345,107 L400,107" marker-end="url(#arr3)"/>
+            <path class="dg-flow" d="M550,95 L605,67" marker-end="url(#arr3)"/>
+            <path class="dg-flow-dash" d="M550,120 L605,130" marker-end="url(#arr3)"/>
+            <path class="dg-flow" d="M670,154 L670,170" marker-end="url(#arr3)"/>
+          </svg>
+        </div>
+        <details class="deepdive">
+          <summary>Technical deep-dive <span class="tw">+</span></summary>
+          <div class="dd-body">
+            <div class="dd-item">
+              <h6>Streaming engine</h6>
+              <p>Spark Structured Streaming in micro-batch mode reading from event sources, writing to Delta sinks with the <code>foreachBatch</code> pattern for upserts and multi-sink fan-out.
+              <span class="why">Micro-batch gives near-real-time latency while keeping exactly-once Delta writes.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>State &amp; watermarking</h6>
+              <p>Event-time watermarks bound late data and cap state growth for windowed aggregations and stream-stream joins across the three domains.
+              <span class="why">Without watermarks, joined supplier/logistics state would grow unbounded.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Exactly-once delivery</h6>
+              <p>Checkpointing plus Delta's idempotent transactional writes guarantee no duplicates or loss on restart; offsets tracked in the checkpoint dir.
+              <span class="why">Plant decisions rely on the numbers — duplicates would erode trust instantly.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>CDC domain join</h6>
+              <p>Supplier, logistics and production changes captured as CDC feeds, harmonised on shared keys, enabling correlation that surfaces bottlenecks before they cascade.
+              <span class="why">The value is in the join — no single domain shows the bottleneck alone.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Latency vs cost</h6>
+              <p>Trigger interval tuned against SLA; autoscaling clusters and partition sizing balanced to avoid tiny-batch overhead while holding freshness targets.
+              <span class="why">Sub-second wasn't needed — seconds-fresh at lower cost was the right trade.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>KPI co-design</h6>
+              <p>Metrics agreed in stakeholder workshops before build, encoded as Gold-layer definitions so dashboards share one source of truth.
+              <span class="why">Defining KPIs first prevents dashboard sprawl and conflicting numbers.</span></p>
+            </div>
+            <div class="spec">
+              <span class="sl">Stack</span>
+              <code>Structured Streaming</code><code>Delta sink</code><code>foreachBatch</code><code>Watermarks</code><code>Checkpointing</code><code>Power BI</code>
+            </div>
+          </div>
+        </details>
+        <div class="metrics">
+          <div class="metric"><div class="m-num"><b>20%</b></div><div class="m-lbl">reduction in supply-chain delays</div></div>
+          <div class="metric"><div class="m-num"><b>3</b></div><div class="m-lbl">domains integrated in real time</div></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Case 4 -->
+    <article class="case reveal">
+      <div class="case-idx">04</div>
+      <div>
+        <div class="case-role">Technical Lead · Ongoing</div>
+        <h3>Enterprise data-quality automation framework</h3>
+        <div class="case-grid">
+          <div class="field">
+            <h5>Problem</h5>
+            <p>Data-quality issues were caught late and inconsistently, eroding trust in reporting and creating compliance risk across pipelines.</p>
+          </div>
+          <div class="field">
+            <h5>Constraints</h5>
+            <p>Rules had to be reusable across many pipelines, enforced automatically, and produce an audit trail regulators would accept.</p>
+          </div>
+          <div class="field">
+            <h5>Design &amp; trade-offs</h5>
+            <p>A modular validation framework built into the ETL flow — business rules, uniqueness, referential integrity, and anomaly detection via Deequ and custom PySpark modules — with automated alerts, escalation, and end-to-end audit logs.</p>
+          </div>
+          <div class="field">
+            <h5>Outcome</h5>
+            <p>Critical quality incidents fell by half, compliance improved, and junior engineers were mentored into the profiling and validation practices that keep it running at scale.</p>
+          </div>
+        </div>
+        <div class="chips">
+          <span class="chip">Deequ</span><span class="chip">PySpark</span><span class="chip">Data contracts</span><span class="chip">Anomaly detection</span><span class="chip">Audit logging</span><span class="chip">Mentoring</span>
+        </div>
+        <div class="diagram">
+          <div class="dg-cap">Fig. 04 — Modular quality framework · a reusable validation layer wired into every pipeline</div>
+          <svg viewBox="0 0 860 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data quality framework: incoming pipeline data passes through a validation layer of rule checks; passes go to trusted zone, failures trigger alerts and audit logs.">
+            <!-- Incoming pipelines -->
+            <text class="dg-tag" x="20" y="24">ETL PIPELINES</text>
+            <rect class="dg-box-fill dg-box-stroke" x="20" y="40" width="120" height="30" rx="3"/>
+            <text class="dg-sub" x="32" y="59">Pipeline A</text>
+            <rect class="dg-box-fill dg-box-stroke" x="20" y="88" width="120" height="30" rx="3"/>
+            <text class="dg-sub" x="32" y="107">Pipeline B</text>
+            <rect class="dg-box-fill dg-box-stroke" x="20" y="136" width="120" height="30" rx="3"/>
+            <text class="dg-sub" x="32" y="155">Pipeline N…</text>
+            <!-- Validation layer (the signature block) -->
+            <text class="dg-tag" x="200" y="24">VALIDATION LAYER · DEEQU + PYSPARK</text>
+            <rect class="dg-box-fill-hi dg-box-stroke-hi" x="200" y="34" width="240" height="150" rx="4"/>
+            <rect class="dg-box-fill dg-box-stroke" x="216" y="50" width="100" height="26" rx="3"/>
+            <text class="dg-sub" x="226" y="67">Business rules</text>
+            <rect class="dg-box-fill dg-box-stroke" x="324" y="50" width="100" height="26" rx="3"/>
+            <text class="dg-sub" x="334" y="67">Uniqueness</text>
+            <rect class="dg-box-fill dg-box-stroke" x="216" y="84" width="100" height="26" rx="3"/>
+            <text class="dg-sub" x="226" y="101">Referential int.</text>
+            <rect class="dg-box-fill dg-box-stroke" x="324" y="84" width="100" height="26" rx="3"/>
+            <text class="dg-sub" x="334" y="101">Anomaly det.</text>
+            <text class="dg-sub" x="216" y="134">Modular · reusable across all pipelines</text>
+            <text class="dg-sub" x="216" y="152">Data contracts enforced at entry</text>
+            <text class="dg-sub" x="216" y="170">Mentored team adoption at scale</text>
+            <!-- Pass path -->
+            <text class="dg-tag" x="500" y="24">PASS</text>
+            <rect class="dg-box-fill-hi dg-box-stroke-hi" x="500" y="40" width="140" height="50" rx="3"/>
+            <text class="dg-title" x="514" y="62">Trusted zone</text>
+            <text class="dg-sub" x="514" y="80">BI-ready · compliant</text>
+            <!-- Fail path -->
+            <text class="dg-tag" x="500" y="118">FAIL</text>
+            <rect class="dg-box-fill dg-box-stroke" x="500" y="128" width="140" height="56" rx="3"/>
+            <text class="dg-title" x="514" y="150">Alert + escalate</text>
+            <text class="dg-sub" x="514" y="168">quarantine · notify owner</text>
+            <!-- Audit -->
+            <rect class="dg-box-fill dg-box-stroke" x="680" y="40" width="160" height="144" rx="3"/>
+            <text class="dg-tag" x="694" y="60">AUDIT + COMPLIANCE</text>
+            <text class="dg-sub" x="694" y="86">End-to-end audit logs</text>
+            <text class="dg-sub" x="694" y="106">Issue tracking</text>
+            <text class="dg-sub" x="694" y="126">Regulatory evidence</text>
+            <text class="dg-sub" x="694" y="152">−50% critical incidents</text>
+            <defs>
+              <marker id="arr4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path class="dg-arrow" d="M0,0 L6,3 L0,6 Z"/></marker>
+            </defs>
+            <path class="dg-flow" d="M140,55 L200,80" marker-end="url(#arr4)"/>
+            <path class="dg-flow" d="M140,103 L200,105" marker-end="url(#arr4)"/>
+            <path class="dg-flow" d="M140,151 L200,130" marker-end="url(#arr4)"/>
+            <path class="dg-flow" d="M440,90 L500,65" marker-end="url(#arr4)"/>
+            <path class="dg-flow-dash" d="M440,130 L500,150" marker-end="url(#arr4)"/>
+            <path class="dg-flow-dash" d="M640,156 L680,140" marker-end="url(#arr4)"/>
+          </svg>
+        </div>
+        <details class="deepdive">
+          <summary>Technical deep-dive <span class="tw">+</span></summary>
+          <div class="dd-body">
+            <div class="dd-item">
+              <h6>Framework design</h6>
+              <p>A config-driven validation layer: rules declared as metadata (YAML/table), executed by a shared engine so any pipeline opts in without bespoke code.
+              <span class="why">Reusability is the whole point — one engine, many pipelines, no copy-paste.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Check types</h6>
+              <p>Deequ analyzers plus custom PySpark checks cover completeness, uniqueness, referential integrity, domain/range rules and statistical anomaly detection on key metrics.
+              <span class="why">Anomaly checks catch the drift that fixed rules miss.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Enforcement model</h6>
+              <p>Checks run at pipeline entry as a data-contract gate; severity tiers decide pass, warn, or quarantine-and-halt so failures don't propagate downstream.
+              <span class="why">Tiered severity avoids blocking a pipeline over a cosmetic warning.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Alerting &amp; escalation</h6>
+              <p>Failures raise typed alerts routed to the owning team with issue tracking and escalation paths; suppression logic prevents alert fatigue on known issues.
+              <span class="why">Actionable alerts, not noise — owners fix what's theirs.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Audit &amp; compliance</h6>
+              <p>Every run's results persisted to an append-only audit store — check, dataset, verdict, timestamp — giving regulators end-to-end evidence and trend history.
+              <span class="why">Immutable logs turn "we check quality" into provable compliance.</span></p>
+            </div>
+            <div class="dd-item">
+              <h6>Adoption at scale</h6>
+              <p>Onboarding templates, profiling utilities and mentoring drove team-wide adoption and consistent standards across pipelines.
+              <span class="why">A framework only pays off once the whole team defaults to it.</span></p>
+            </div>
+            <div class="spec">
+              <span class="sl">Stack</span>
+              <code>Deequ</code><code>PySpark</code><code>Data contracts</code><code>Metadata-driven rules</code><code>Audit log</code>
+            </div>
+          </div>
+        </details>
+        <div class="metrics">
+          <div class="metric"><div class="m-num"><b>50%</b></div><div class="m-lbl">fewer critical DQ incidents</div></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ARCHITECTURE DIAGRAM -->
+<section class="block" id="architecture">
+  <div class="wrap">
+    <div class="eyebrow reveal">03 — Reference Architecture</div>
+    <div class="sec-head reveal"><h2>How the lakehouse fits together.</h2></div>
+    <p class="sec-intro reveal">The pattern behind Case Study 01 — data flows left to right, gaining structure and trust at each stage before it ever reaches a business user.</p>
+    <div class="pipe reveal">
+      <div class="stage">
+        <div class="st-idx">STAGE 01</div>
+        <h6>Sources</h6>
+        <ul><li>ERP systems</li><li>IoT sensors</li><li>Transactional DBs</li><li>JSON · CSV · Parquet</li></ul>
+      </div>
+      <div class="stage">
+        <div class="st-idx">STAGE 02</div>
+        <h6>Ingestion</h6>
+        <ul><li>Azure Data Factory</li><li>PySpark loaders</li><li>CDC capture</li><li>Batch + streaming</li></ul>
+      </div>
+      <div class="stage">
+        <div class="st-idx">STAGE 03</div>
+        <h6>Delta Lakehouse</h6>
+        <div class="medallion"><span class="med-dot med-b"></span><span class="med-dot med-s"></span><span class="med-dot med-g"></span></div>
+        <ul><li>Bronze — raw</li><li>Silver — cleaned</li><li>Gold — curated</li><li>SCD2 · time travel</li></ul>
+      </div>
+      <div class="stage">
+        <div class="st-idx">STAGE 04</div>
+        <h6>Quality &amp; Governance</h6>
+        <ul><li>Deequ checks</li><li>Schema enforcement</li><li>Purview lineage</li><li>Access control</li></ul>
+      </div>
+      <div class="stage">
+        <div class="st-idx">STAGE 05</div>
+        <h6>Serving</h6>
+        <ul><li>Curated data marts</li><li>Power BI dashboards</li><li>Self-service BI</li><li>Airflow monitoring</li></ul>
+      </div>
+    </div>
+    <p class="pipe-note mono">bronze → silver → gold · quality gates enforced before serving · full lineage end to end</p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="eyebrow reveal">04 — Capabilities</div>
+    <div class="sec-head reveal"><h2>What I build with.</h2></div>
+    <p class="sec-intro reveal">Depth where it counts for platform design, plus the presales and leadership range these roles actually require.</p>
+    <div class="skill-grid">
+      <div class="skill-col reveal">
+        <h4>Platform &amp; engineering</h4>
+        <div class="skill-row"><span>PySpark &amp; Apache Spark</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span></div>
+        <div class="skill-row"><span>Delta Lake / Lakehouse</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span></div>
+        <div class="skill-row"><span>Python</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i></span></div>
+        <div class="skill-row"><span>Azure Databricks</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Azure Data Factory</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Spark SQL</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Snowflake / PostgreSQL</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
+      </div>
+      <div class="skill-col reveal">
+        <h4>Architecture &amp; design</h4>
+        <div class="skill-row"><span>Scalable data architecture</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Data modeling &amp; governance</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>ETL frameworks</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Pipeline optimization</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>SCD2 / CDC patterns</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Data quality (Deequ)</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Cost optimization</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+      </div>
+      <div class="skill-col reveal">
+        <h4>Advisory &amp; leadership</h4>
+        <div class="skill-row"><span>Presales &amp; solutioning</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Estimation &amp; proposals</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Stakeholder management</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Team leadership &amp; mentoring</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Risk management</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Data strategy &amp; roadmapping</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+        <div class="skill-row"><span>Client demos</span><span class="dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- EXPERIENCE + CERTS -->
+<section class="block">
+  <div class="wrap two-col">
+    <div>
+      <div class="eyebrow reveal">05 — Experience</div>
+      <div class="sec-head reveal" style="margin-bottom:34px"><h2>Track record</h2></div>
+      <div class="tl">
+        <div class="tl-item now reveal">
+          <div class="tl-date">MAY 2026 — PRESENT</div>
+          <h4>Technology Strategy &amp; Data Engineering — Associate Manager</h4>
+          <div class="tl-org">Accenture India · Strategy &amp; Consulting</div>
+          <p>Owns end-to-end delivery, data strategy and governance, and presales solutioning. Building an in-house data-asset ontology and leading cross-functional engineering teams.</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-date">FEB 2023 — APR 2026</div>
+          <h4>Technology Strategy &amp; Data Engineering — Team Lead</h4>
+          <div class="tl-org">Accenture India · Strategy &amp; Consulting</div>
+          <p>Designed and delivered scalable cloud data pipelines on Azure Databricks, PySpark and Delta Lake. Drove modeling and performance optimization across platforms.</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-date">SEP 2022 — JAN 2023</div>
+          <h4>Senior Developer</h4>
+          <div class="tl-org">De Soto Technologies · Data-Ops / BI</div>
+          <p>Built business reporting on PostgreSQL and Tableau, and designed data models defining sources and transformation requirements.</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-date">JUN 2019 — SEP 2022</div>
+          <h4>Data Analyst / Assistant Manager</h4>
+          <div class="tl-org">AMNS India (ArcelorMittal Nippon Steel)</div>
+          <p>Turned fuel-consumption data into predictive insight with SQL, Power BI and Excel — identifying patterns that saved 8–10% of total fuel cost.</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow reveal">06 — Credentials</div>
+      <div class="sec-head reveal" style="margin-bottom:34px"><h2>Certifications</h2></div>
+      <div class="side-card reveal" style="margin-bottom:22px">
+        <h4>In progress</h4>
+        <div class="cert" style="border:none;background:transparent;padding:0;margin-bottom:14px">
+          <div class="mk">◆</div>
+          <div><h5>Azure Solutions Architect Expert (AZ-305)</h5><div class="prog">Studying · exam scheduled</div></div>
+        </div>
+        <div class="cert" style="border:none;background:transparent;padding:0">
+          <div class="mk">◆</div>
+          <div><h5>Databricks Certified Data Engineer Professional</h5><div class="prog">Studying · exam scheduled</div></div>
+        </div>
+      </div>
+      <div class="cert-grid">
+        <div class="cert reveal"><div class="mk">◇</div><div><h5>Business Analytics — Power BI &amp; MS Excel</h5><div class="cn">SM/BAPB/0222/467</div></div></div>
+        <div class="cert reveal"><div class="mk">◇</div><div><h5>Python for Data Science &amp; ML Bootcamp</h5><div class="cn">UC-6109d840…</div></div></div>
+        <div class="cert reveal"><div class="mk">◇</div><div><h5>Statistics for Data Science &amp; Business Analysis</h5><div class="cn">UC-6dcf09d9…</div></div></div>
+        <div class="cert reveal"><div class="mk">◇</div><div><h5>Excel — Beginner to Advanced</h5><div class="cn">UC-49ce361f…</div></div></div>
+      </div>
+      <div class="side-card reveal" style="margin-top:22px">
+        <h4>Education</h4>
+        <div class="row"><span>M.Tech, Power Electronics</span><span>Nirma University</span></div>
+        <div class="row"><span>B.Tech, Electrical Eng.</span><span>GTU</span></div>
+        <div class="row"><span>Internship</span><span>ISRO — SAC</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow reveal">07 — Contact</div>
+    <h2 class="reveal">Let's talk about the platform<br>you're trying to <em>build</em>.</h2>
+    <div class="contact-links reveal">
+      <a class="clink" href="mailto:shivang729@gmail.com"><small>Email</small><span>shivang729@gmail.com</span></a>
+      <a class="clink" href="https://linkedin.com/in/ShivangNaik19" target="_blank" rel="noopener"><small>LinkedIn</small><span>/in/ShivangNaik19</span></a>
+      <a class="clink" href="tel:+918306443990"><small>Phone</small><span>+91 83064 43990</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Shivang Naik — Data Platform Architect · Solutions Advisor</span>
+    <span>Portfolio · 2026</span>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
